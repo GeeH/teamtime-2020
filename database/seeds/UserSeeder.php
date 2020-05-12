@@ -7,7 +7,9 @@ class UserSeeder extends Seeder
 
     public function run()
     {
+        Schema::disableForeignKeyConstraints();
         DB::table('users')->truncate();
+        Schema::enableForeignKeyConstraints();
 
         $user = new \App\User();
         $user->name = 'Gary Hockin';
