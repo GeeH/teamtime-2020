@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="flex flex-wrap overflow-hidden">
+    <div class="flex flex-wrap overflow-hidden p-4">
 
         @foreach ($people as $person)
         <div class="w-1/5 bg-white rounded-lg shadow-xl m-4 p-4">
