@@ -49,7 +49,9 @@
     </div>
 </nav>
 
-@yield('content')
+<div class="container mx-auto px-6 md:px-0">
+    @yield('content')
+</div>
 <script>
     const renderClock = () => {
         document.getElementById('local-clock').innerHTML = '<h5>' + moment().format('MMMM Do YYYY h:mm') + '</h5>';
