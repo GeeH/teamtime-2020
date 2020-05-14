@@ -11,7 +11,7 @@ class PersonSeeder extends Seeder
         DB::table('people')
             ->truncate();
 
-        factory(Person::class, 100)
+        factory(Person::class, 10)
             ->create();
     }
 }

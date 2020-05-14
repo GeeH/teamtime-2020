@@ -1,27 +1,14 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="flex items-center">
-        <div class="md:w-1/2 md:mx-auto">
+    <div class="flex flex-wrap overflow-hidden p-4">
 
-            @if (session('status'))
-                <div class="text-sm border border-t-8 rounded text-green-700 border-green-600 bg-green-100 px-3 py-4 mb-4" role="alert">
-                    {{ session('status') }}
-                </div>
-            @endif
-
-            <div class="flex flex-col break-words bg-white border border-2 rounded shadow-md">
-
-                <div class="font-semibold bg-gray-200 text-gray-700 py-3 px-6 mb-0">
-                    Dashboard
-                </div>
-
-                <div class="w-full p-6">
-                    <p class="text-gray-700">
-                        You are logged in!
-                    </p>
-                </div>
-            </div>
+        @foreach ($people as $person)
+        <div class="w-1/5 bg-white rounded-lg shadow-xl m-4 p-4">
+            <h2 class="font-semibold text-xl leading-snug text-gray-900">{{ $person->name }}</h2>
+            <p class="mt-4 text-gray-600 person-time" data-timezone="{{ $person->timezone }}"></p>
         </div>
+        @endforeach
+
     </div>
 @endsection
