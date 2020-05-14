@@ -4,15 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Person;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\View\View;
 
 class HomeController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
-    public function __invoke()
+    public function __invoke(): View
     {
         $people =  Person::where('user_id', Auth::id())
             ->get();

@@ -20,4 +20,9 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController')->name('home');
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/home', 'HomeController')->name('home');
+    Route::get('/edit/{person_id}', 'EditPersonController@index')->name('edit-person');
+    Route::post('/edit/{person_id}', 'EditPersonController@handle')->name('edit-person-handler');
+});
