@@ -11,6 +11,8 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/moment.js') }}"></script>
+    <script src="{{ asset('js/moment-timezone-with-data.js') }}"></script>
+
 
     <!-- Styles -->
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
@@ -54,10 +56,17 @@
 </div>
 <script>
     const renderClock = () => {
-        document.getElementById('local-clock').innerHTML = '<h5>' + moment().format('MMMM Do YYYY h:mm') + '</h5>';
+        document.getElementById('local-clock').innerHTML = '<h5>' + moment()
+            .format('MMMM Do YYYY kk:mm') + '</h5>';
+
+        var timezoneElements = document.querySelectorAll('.person-time');
+        timezoneElements.forEach(timezoneElement => {
+            timezoneElement.innerHTML = moment().tz(timezoneElement.getAttribute('data-timezone'))
+                .format('kk:mm') + ' in ' + timezoneElement.getAttribute('data-timezone');
+        });
     };
     renderClock();
-    setInterval(renderClock, 30000);
+    setInterval(renderClock, 10000);
 </script>
 </body>
 </html>
