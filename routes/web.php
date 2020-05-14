@@ -25,4 +25,6 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/home', 'HomeController')->name('home');
     Route::get('/edit/{person_id}', 'EditPersonController@index')->name('edit-person');
     Route::post('/edit/{person_id}', 'EditPersonController@handle')->name('edit-person-handler');
+    Route::get('/add', 'AddPersonController@index')->name('add-person');
+    Route::post('/add', 'AddPersonController@handle')->name('add-person-handler');
 });
