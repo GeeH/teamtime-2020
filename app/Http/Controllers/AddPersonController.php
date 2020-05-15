@@ -14,7 +14,6 @@ class AddPersonController extends AbstractPersonCrudController
     public function index(): View
     {
         $person = new Person();
-
         return view('add-edit-person', ['person' => $person, 'route' => 'add-person-handler']);
     }
 
