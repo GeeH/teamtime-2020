@@ -12,7 +12,7 @@
     <!-- Scripts -->
     <script src="{{ asset('js/moment.js') }}"></script>
     <script src="{{ asset('js/moment-timezone-with-data.js') }}"></script>
-
+    <script src="https://kit.fontawesome.com/1ce912d720.js" crossorigin="anonymous"></script>
 
     <!-- Styles -->
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
@@ -36,6 +36,10 @@
                            href="{{ route('register') }}">{{ __('Register') }}</a>
                     @endif
                 @else
+                    <a href="{{ route('add-person') }}"
+                       class="bg-white shadow-md rounded mr-4 p-2 text-center">
+                        <i class=" fas fa-user-plus text-black"></i>
+                    </a>
                     <span class="text-gray-300 text-sm pr-4">{{ Auth::user()->name }}</span>
 
                     <a href="{{ route('logout') }}"
