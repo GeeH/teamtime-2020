@@ -14,11 +14,11 @@
                         </div>
                     </div>
                 </div>
-                <p class="mt-4 text-gray-600 person-time" data-timezone="{{ $person->timezone }}"></p>
+                <p class="mt-4 text-gray-900 person-time" data-timezone="{{ $person->timezone }}"></p>
                 <span class="hidden" data-id="{{ $person->id }}"></span>
 
                 <div>
-                    <div class="ml-4 mt-2 text-right">
+                    <div class="ml-4 mt-2 text-right p-2">
                             <a type="button" href="{{ route('edit-person', ['person' => $person]) }}"
                                     class="text-gray-500">
                                 <i class="fas fa-user-edit"></i>
