@@ -1,6 +1,7 @@
 <?php declare(strict_types=1);
 
 use App\Http\Controllers\HomeController;
+use App\Person;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,8 +24,17 @@ Auth::routes();
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/home', 'HomeController')->name('home');
-    Route::get('/edit/{person_id}', 'EditPersonController@index')->name('edit-person');
-    Route::post('/edit/{person_id}', 'EditPersonController@handle')->name('edit-person-handler');
+    Route::get('/edit/{person}', 'EditPersonController@index')->name('edit-person');
+    Route::post('/edit/{person}', 'EditPersonController@handle')->name('edit-person-handler');
     Route::get('/add', 'AddPersonController@index')->name('add-person');
     Route::post('/add', 'AddPersonController@handle')->name('add-person-handler');
+    Route::get('/delete/{person}', 'DeletePersonController@index')->name('delete-person');
+    Route::post('/delete/{person}', 'DeletePersonController@handle')->name('delete-person-handler');
+});
+
+Route::bind('person', function ($personId): \App\Person {
+    return Person::where([
+        'id' => $personId,
+        'user_id' => Auth::id(),
+    ])->firstOrFail();
 });

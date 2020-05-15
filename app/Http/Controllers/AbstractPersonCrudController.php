@@ -12,15 +12,4 @@ abstract class AbstractPersonCrudController extends Controller
         'person-name' => 'required',
         'person-timezone' => 'required',
     ];
-
-    protected function getPerson(Request $request): Person
-    {
-        $personId = (int)$request->route('person_id', 0);
-        $person = Person::where([
-            'id' => $personId,
-            'user_id' => Auth::id(),
-        ])->firstOrFail();
-
-        return $person;
-    }
 }
