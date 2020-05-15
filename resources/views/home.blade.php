@@ -18,17 +18,15 @@
                 <span class="hidden" data-id="{{ $person->id }}"></span>
 
                 <div>
-                    <div class="ml-4 mt-2 flex-shrink-0">
-                          <span class="inline-flex rounded-md shadow-sm">
+                    <div class="ml-4 mt-2 text-right">
                             <a type="button" href="{{ route('edit-person', ['person' => $person]) }}"
-                                    class="">
+                                    class="text-gray-500">
                                 <i class="fas fa-user-edit"></i>
                             </a>
                             <a type="button" href="{{ route('delete-person', ['person' => $person]) }}"
-                                    class="">
+                                    class="text-gray-500">
                                 <i class="fas fa-user-slash"></i>
                             </a>
-                          </span>
                     </div>
                 </div>
             </div>

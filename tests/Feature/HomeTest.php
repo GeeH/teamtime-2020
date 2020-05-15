@@ -10,8 +10,6 @@ use Tests\TestCase;
 
 class HomeTest extends TestCase
 {
-    use DatabaseMigrations;
-    use DatabaseTransactions;
 
     public function test_home_page_redirects_to_login_as_guest(): void
     {
