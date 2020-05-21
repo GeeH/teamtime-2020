@@ -4,11 +4,11 @@
     <div class="flex flex-wrap overflow-hidden p-4">
 
         @foreach ($people as $person)
-            <div class="w-1/5 bg-white rounded-lg shadow-xl m-4 p-4">
+            <div class="w-1/5 bg-white rounded-lg shadow-xl m-4 px-4">
                 <div class="bg-white border-b border-gray-200">
-                    <div class="-ml-4 -mt-2 flex items-center justify-between flex-wrap sm:flex-no-wrap py-2">
+                    <div class="-ml-4 flex items-center justify-between flex-wrap sm:flex-no-wrap py-2">
                         <div class="ml-4 mt-2">
-                            <h3 class="text-lg leading-6 font-medium text-gray-900">
+                            <h3 class="text-lg font-medium text-gray-900">
                                 {{ $person->name }}
                             </h3>
                         </div>
@@ -18,7 +18,7 @@
                 <span class="hidden" data-id="{{ $person->id }}"></span>
 
                 <div>
-                    <div class="ml-4 mt-2 text-right p-2">
+                    <div class="ml-4 mt-2 text-right p-2 -mr-4">
                             <a type="button" href="{{ route('edit-person', ['person' => $person]) }}"
                                     class="text-gray-500">
                                 <i class="fas fa-user-edit"></i>

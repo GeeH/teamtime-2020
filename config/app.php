@@ -123,6 +123,11 @@ return [
 
     'cipher' => 'AES-256-CBC',
 
+
+    /** Bref Config */
+    'mix_url' => env('MIX_ASSET_URL', null),
+    'asset_url' => env('MIX_ASSET_URL', null),
+
     /*
     |--------------------------------------------------------------------------
     | Autoloaded Service Providers
