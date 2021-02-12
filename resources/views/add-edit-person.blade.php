@@ -24,10 +24,7 @@
                 </div>
                 <div>
                     <label>Timezone:
-                        <input name="person-timezone" type="text" required value="{{ $person->timezone }}"
-                               class="m-2 p-2 form-input"
-                               placeholder="Timezone"
-                        />
+                        <livewire:timezone-dropdown :person="$person"/>
                     </label>
                 </div>
 
