@@ -14,6 +14,8 @@
     <script src="{{ asset('js/moment-timezone-with-data.js') }}"></script>
     <script src="https://kit.fontawesome.com/1ce912d720.js" crossorigin="anonymous"></script>
 
+    @livewireStyles
+
     <!-- Styles -->
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
 </head>
@@ -72,5 +74,8 @@
     renderClock();
     setInterval(renderClock, 10000);
 </script>
+
+@livewireScripts
+
 </body>
 </html>
