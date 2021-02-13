@@ -3,12 +3,8 @@
 namespace Tests\Feature;
 
 use App\User;
-use Illuminate\Foundation\Testing\Concerns\InteractsWithDatabase;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
-use Illuminate\Foundation\Testing\DatabaseTransactions;
-use Tests\TestCase;
 
-class HomeTest extends TestCase
+class HomeTest extends AuthenticatedFeatureTestCase
 {
 
     public function test_home_page_redirects_to_login_as_guest(): void
@@ -20,11 +16,20 @@ class HomeTest extends TestCase
 
     public function test_home_page_displays_user_name_if_user_logged_in()
     {
-        $user = factory(User::class)->create();
-        $this->actingAs($user);
+        $this->login();
 
         $this->get(route('home'))
             ->assertStatus(200)
-            ->assertSee($user->name);
+            ->assertSee($this->user->name);
     }
+
+    public function test_home_page_displays_person_card_if_user_logged_in()
+    {
+        $this->login();
+
+        $this->get(route('home'))
+            ->assertStatus(200)
+            ->assertSee('Zaphod Beeblebrox');
+    }
+
 }
