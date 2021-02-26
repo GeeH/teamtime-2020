@@ -9,11 +9,17 @@ class PersonSeeder extends Seeder
 {
     public function run()
     {
+        Schema::disableForeignKeyConstraints();
         DB::table('people')
             ->truncate();
+        Schema::enableForeignKeyConstraints();
 
-        factory(Person::class, 10)
-            ->create();
+        factory(Person::class, 50)
+            ->create()
+            ->each(function(Person $person) {
+                $team = \App\Team::inRandomOrder()->first();
+                $person->teams()->attach($team->id);
+            });
 
         $person = new Person();
         $person->name = 'Zaphod Beeblebrox';
@@ -21,5 +27,6 @@ class PersonSeeder extends Seeder
         $person->timezone = 'Europe/Dublin';
         $person->uuid = Uuid::uuid4();
         $person->save();
+        $person->teams()->attach(1);
     }
 }

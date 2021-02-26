@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Person;
+use App\Team;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
 
@@ -10,9 +11,12 @@ class HomeController extends Controller
 {
     public function __invoke(): View
     {
-        $people =  Person::where('user_id', Auth::id())
-            ->get();
+        $teams = Team::whereHas('person', function($query) {
+            $query->where('user_id', '=', auth()->user()->id);
+        })->with(['person' => function($query) {
+            $query->where('user_id', '=', auth()->user()->id);
+        }])->get();
 
-        return view('home', ['people' => $people]);
+        return view('home', ['teams' => $teams]);
     }
 }

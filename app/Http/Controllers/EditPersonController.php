@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Person;
+use App\Team;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
@@ -22,6 +23,18 @@ class EditPersonController extends AbstractPersonCrudController
         $person->name = $request->post('person-name');
         $person->timezone = $request->post('person-timezone');
         $person->save();
+
+        $team = Team::where('name', '=',  $request->post('person-team'))
+            ->first();
+
+        if(!$team) {
+            $team = new Team();
+            $team->name = $request->post('person-team');
+            $team->save();
+        }
+
+        $person->teams()->detach();
+        $person->teams()->attach($team->id);
 
         return Redirect::route('home');
     }

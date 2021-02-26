@@ -11,5 +11,6 @@ abstract class AbstractPersonCrudController extends Controller
     protected array $validationRules = [
         'person-name' => 'required',
         'person-timezone' => 'required',
+        'person-team' => 'required',
     ];
 }

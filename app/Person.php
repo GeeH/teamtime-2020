@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 /**
  * App\Person
@@ -28,5 +29,8 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Person extends Model
 {
-    //
+    public function teams(): BelongsToMany
+    {
+        return $this->belongsToMany(Team::class);
+    }
 }

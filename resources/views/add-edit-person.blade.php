@@ -29,6 +29,14 @@
                 </div>
 
                 <div>
+                    <label>Team:</label>
+                    <input name="person-team" type="text" required value="{{ $person->teams->first()->name }}"
+                           class="m-2 p-2 form-input"
+                           placeholder="Team"
+                    />
+                </div>
+
+                <div>
                     <button class="form-input w-16 m-2 p-2 bg-blue-500 text-white" type="submit">Save</button>
                 </div>
             </form>
