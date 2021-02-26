@@ -5,11 +5,11 @@
         @foreach ($teams as $team)
 
             <div class="">
-            <div class="bg-gray-700 rounded-md px-4 py-5 mb-8">
+            <div class="bg-gray-700 rounded-md px-5 py-5 mb-8">
                 <h3 class="pl-1 text-lg font-bold text-white mb-5">{{ $team->name }}</h3>
 
             @foreach ($team->person as $person)
-                    <div class="w-full bg-white rounded-md shadow-lg mb-3">
+                    <div class="w-full bg-white rounded-md shadow-lg mb-4">
                         <div class="bg-gray-200 border-b border-gray-200 rounded-t-lg">
                             <div class="flex items-center justify-between flex-wrap sm:flex-no-wrap py-3half px-4">
                                 <div class="">
