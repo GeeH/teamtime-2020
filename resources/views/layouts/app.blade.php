@@ -67,8 +67,13 @@
 
         var timezoneElements = document.querySelectorAll('.person-time');
         timezoneElements.forEach(timezoneElement => {
-            timezoneElement.innerHTML = moment().tz(timezoneElement.getAttribute('data-timezone'))
-                .format('kk:mm') + ' in ' + timezoneElement.getAttribute('data-timezone');
+            timezoneElement.innerHTML =
+                '<span class="text-xl font-bold">'
+                + moment().tz(timezoneElement.getAttribute('data-timezone')).format('kk:mm')
+                + '</span> in '
+                + '<span class="text-sm">'
+                + timezoneElement.getAttribute('data-timezone')
+                + '</span>';
         });
     };
     renderClock();
