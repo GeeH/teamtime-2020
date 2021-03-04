@@ -1,10 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="flex flex-wrap overflow-hidden md:px-6 pt-2 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xxl:grid-cols-5 col-gap-4">
+    <div class="flex md:px-3">
         @foreach ($teams as $team)
 
-            <div class="">
+            <div class="team mr-2">
             <div class="bg-gray-700 rounded-md px-5 py-5 mb-8">
                 <h3 class="pl-1 text-lg font-bold text-white mb-5">{{ $team->name }}</h3>
 

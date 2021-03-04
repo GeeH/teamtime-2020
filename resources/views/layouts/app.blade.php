@@ -21,8 +21,8 @@
 </head>
 <body class="bg-gray-100 h-screen antialiased leading-none">
 
-<nav class="bg-blue-900 shadow mb-8 py-6">
-    <div class=" mx-auto px-6 md:px-0">
+<nav class="bg-blue-900 shadow py-6">
+    <div class="mx-auto px-6 md:px-0 mt-8 overflow-x-scroll">
         <div class="flex items-center justify-center">
             <div class="mr-6 pl-6">
                 <a id="local-clock" href="{{ url('/') }}" class="text-lg font-semibold text-gray-100 no-underline">
@@ -57,7 +57,7 @@
     </div>
 </nav>
 
-<div class="mx-auto px-6 md:px-0">
+<div class="content mx-auto px-6 md:px-0 mt-4">
     @yield('content')
 </div>
 <script>
