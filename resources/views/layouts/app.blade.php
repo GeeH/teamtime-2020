@@ -19,9 +19,9 @@
     <!-- Styles -->
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
 </head>
-<body class="bg-gray-100 h-screen antialiased leading-none">
+<body class="bg-gray-100 h-content w-content antialiased leading-none">
 
-<nav class="bg-blue-900 shadow py-6">
+<nav class="bg-blue-900 shadow py-6 fixed w-full top-0">
     <div class="mx-auto px-6 md:px-0 mt-8 overflow-x-scroll">
         <div class="flex items-center justify-center">
             <div class="mr-6 pl-6">
@@ -57,7 +57,7 @@
     </div>
 </nav>
 
-<div class="content mx-auto px-6 md:px-0 mt-4">
+<div class="content mx-auto px-6 md:px-0 mt-7 w-content">
     @yield('content')
 </div>
 <script>
@@ -68,7 +68,7 @@
         var timezoneElements = document.querySelectorAll('.person-time');
         timezoneElements.forEach(timezoneElement => {
             timezoneElement.innerHTML =
-                '<span class="text-xl font-bold">'
+                '<span class="text-lg font-bold time">'
                 + moment().tz(timezoneElement.getAttribute('data-timezone')).format('kk:mm')
                 + '</span> in '
                 + '<span class="text-sm">'

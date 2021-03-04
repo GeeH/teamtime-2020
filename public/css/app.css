@@ -92993,3 +92993,23 @@ video {
     transition-delay: 1000ms;
   }
 }
+
+.bg-card {
+    background-color: #3b4046;
+}
+
+.mt-7 {
+    margin-top: 7rem;
+}
+
+.time {
+    color: #f3441b;
+}
+
+.w-content {
+    width: fit-content;
+}
+
+.h-content {
+    height: fit-content;
+}
