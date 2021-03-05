@@ -6,6 +6,7 @@ use App\Person;
 use App\Team;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
 use Redirect;
 
@@ -24,12 +25,15 @@ class EditPersonController extends AbstractPersonCrudController
         $person->timezone = $request->post('person-timezone');
         $person->save();
 
-        $team = Team::where('name', '=',  $request->post('person-team'))
+        $team = Team::query()
+            ->where('name', '=', $request->post('person-team'))
+            ->where('user_id', '=', Auth::user()->id)
             ->first();
 
-        if(!$team) {
+        if (!$team) {
             $team = new Team();
             $team->name = $request->post('person-team');
+            $team->user_id = Auth::user()->id;
             $team->save();
         }
 

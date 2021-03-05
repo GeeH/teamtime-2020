@@ -27,6 +27,8 @@ use Ramsey\Uuid\Uuid;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Person whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Person whereUserId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Person whereUuid($value)
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Team[] $teams
+ * @property-read int|null $teams_count
  */
 class Person extends Model
 {

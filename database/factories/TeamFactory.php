@@ -17,7 +17,8 @@ class TeamFactory extends Factory
     {
         $this->invokeCount++;
         return [
-            'name' => $this->teams[$this->invokeCount] ?? $this->faker->word()
+            'name' => $this->teams[$this->invokeCount] ?? $this->faker->word(),
+            'user_id' => 1,
         ];
     }
 }

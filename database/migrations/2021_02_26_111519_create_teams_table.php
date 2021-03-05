@@ -17,6 +17,8 @@ class CreateTeamsTable extends Migration
             $table->id();
             $table->timestamps();
             $table->string('name');
+            $table->foreignIdFor(\App\User::class)
+                ->constrained();
         });
     }
 

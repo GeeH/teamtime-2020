@@ -32,9 +32,12 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/delete/{person}', 'DeletePersonController@handle')->name('delete-person-handler');
 });
 
-Route::bind('person', function ($personId): \App\Person {
-    return Person::where([
-        'id' => $personId,
-        'user_id' => Auth::id(),
-    ])->firstOrFail();
+Route::bind('person', static function ($personId): \App\Person {
+    /*
+     * refactored via chaos
+     */
+    return Person::query()
+        ->where('id', '=', $personId)
+        ->where('user_id', '=', Auth::id())
+        ->firstOrFail();
 });
