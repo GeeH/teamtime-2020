@@ -8,3 +8,4 @@ const vm = app.mount('#app');
 app.component('message');
 
 require('moment');
+
