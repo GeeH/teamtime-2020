@@ -57,9 +57,14 @@
     </div>
 </nav>
 
+<div id="app">
+    <message message="Hi World"></message>
+</div>
+
 <div class="mx-auto px-6 md:px-0">
     @yield('content')
 </div>
+
 <script>
     const renderClock = () => {
         document.getElementById('local-clock').innerHTML = '<h5>' + moment()
@@ -68,12 +73,8 @@
         var timezoneElements = document.querySelectorAll('.person-time');
         timezoneElements.forEach(timezoneElement => {
             timezoneElement.innerHTML =
-                '<span class="text-xl font-bold">'
-                + moment().tz(timezoneElement.getAttribute('data-timezone')).format('HH:mm')
-                + '</span> in '
-                + '<span class="text-sm">'
-                + timezoneElement.getAttribute('data-timezone')
-                + '</span>';
+                '<span class="text-4xl font-bold">'
+                + moment().tz(timezoneElement.getAttribute('data-timezone')).format('HH:mm');
         });
     };
     renderClock();
@@ -81,6 +82,7 @@
 </script>
 
 @livewireScripts
+<script src="{{ mix('js/app.js') }}"></script>
 
 </body>
 </html>

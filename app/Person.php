@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Support\Facades\Auth;
 use Ramsey\Uuid\Uuid;
 
 /**
@@ -49,5 +50,26 @@ class Person extends Model
             $person->teams()->attach(\App\Team::where('name', '=', $team)->first()->id);
         }
         return $person;
+    }
+
+    // @todo felisbinarius: function addToTeam (Team $team) ..
+    public function assignTeam(string $teamName): self
+    {
+        $team = Team::query()
+            ->where('name', '=', $teamName)
+            ->where('user_id', '=', Auth::user()->id)
+            ->first();
+
+        if (!$team) {
+            $team = new Team();
+            $team->name = $teamName;
+            $team->user_id = Auth::user()->id;
+            $team->save();
+        }
+
+        $this->teams()->detach();
+        $this->teams()->attach($team->id);
+
+        return $this;
     }
 }

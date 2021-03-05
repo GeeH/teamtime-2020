@@ -25,20 +25,7 @@ class EditPersonController extends AbstractPersonCrudController
         $person->timezone = $request->post('person-timezone');
         $person->save();
 
-        $team = Team::query()
-            ->where('name', '=', $request->post('person-team'))
-            ->where('user_id', '=', Auth::user()->id)
-            ->first();
-
-        if (!$team) {
-            $team = new Team();
-            $team->name = $request->post('person-team');
-            $team->user_id = Auth::user()->id;
-            $team->save();
-        }
-
-        $person->teams()->detach();
-        $person->teams()->attach($team->id);
+        $person->assignTeam($request->post('person-team'));
 
         return Redirect::route('home');
     }

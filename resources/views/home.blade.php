@@ -19,7 +19,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <p class="mt-4 px-4 text-gray-900 person-time text-sm"
+                            <p class=" text-center mt-4 px-4 text-gray-900 person-time text-sm"
                                data-timezone="{{ $person->timezone }}"></p>
                             <span class="hidden" data-id="{{ $person->id }}"></span>
 
