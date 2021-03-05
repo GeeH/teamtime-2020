@@ -10,7 +10,7 @@ class TeamFactory extends Factory
     protected $model = Team::class;
     protected int $invokeCount = -1;
     protected $teams = [
-        'Friends', 'Work', 'Charity', 'Open Source', 'Other',
+        'Friends', 'Work', 'Community', 'Other',
     ];
 
     public function definition(): array

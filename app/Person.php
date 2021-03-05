@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Ramsey\Uuid\Uuid;
 
 /**
  * App\Person
@@ -32,5 +33,19 @@ class Person extends Model
     public function teams(): BelongsToMany
     {
         return $this->belongsToMany(Team::class);
+    }
+
+    public static function create(string $name, string $timezone, int $userId, array $teams = []): self
+    {
+        $person = new self();
+        $person->name = $name;
+        $person->timezone = $timezone;
+        $person->uuid = Uuid::uuid4();
+        $person->user_id = $userId;
+        $person->save();
+        foreach ($teams as $team) {
+            $person->teams()->attach(\App\Team::where('name', '=', $team)->first()->id);
+        }
+        return $person;
     }
 }

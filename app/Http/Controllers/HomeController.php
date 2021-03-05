@@ -15,7 +15,8 @@ class HomeController extends Controller
             $query->where('user_id', '=', auth()->user()->id);
         })->with(['person' => function($query) {
             $query->where('user_id', '=', auth()->user()->id);
-        }])->get();
+        }])->orderBy('id')
+            ->get();
 
         return view('home', ['teams' => $teams]);
     }
