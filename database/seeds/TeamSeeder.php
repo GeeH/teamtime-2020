@@ -13,15 +13,16 @@ class TeamSeeder extends Seeder
     {
         Schema::disableForeignKeyConstraints();
         \App\Team::truncate(); // for Ocramius
+        DB::table('person_team')->truncate();
         Schema::disableForeignKeyConstraints();
 
-        $team = new \App\Team();
-        $team->id = 1;
-        $team->name = 'Default';
-        $team->save();
+//        $team = new \App\Team();
+//        $team->id = 1;
+//        $team->name = 'Default';
+//        $team->save();
 
         \App\Team::factory()
-            ->count(5)
+            ->count(4)
             ->create();
     }
 }

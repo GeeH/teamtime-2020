@@ -16,12 +16,13 @@
 
                 <div>
                     <label> Name:
-                        <input name="person-name" type="text" required value="{{ $person->name }}"
+                        <input name="person-name" type="text" required value="{{ $person->name ?? '' }}"
                                class="m-2 p-2 form-input"
                                placeholder="Name"
                         />
                     </label>
                 </div>
+
                 <div>
                     <label>Timezone:
                         <livewire:timezone-dropdown :person="$person"/>
@@ -30,7 +31,8 @@
 
                 <div>
                     <label>Team:</label>
-                    <input name="person-team" type="text" required value="{{ $person->teams->first()->name }}"
+                    <input name="person-team" type="text" required
+                           value="{{ $person->teams->first()->name ?? '' }}"
                            class="m-2 p-2 form-input"
                            placeholder="Team"
                     />

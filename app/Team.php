@@ -21,6 +21,10 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
  * @method static \Illuminate\Database\Eloquent\Builder|Team whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Team whereName($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Team whereUpdatedAt($value)
+ * @property int $user_id
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Person[] $person
+ * @property-read int|null $person_count
+ * @method static \Illuminate\Database\Eloquent\Builder|Team whereUserId($value)
  */
 class Team extends Model
 {

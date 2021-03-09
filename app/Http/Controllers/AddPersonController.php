@@ -28,6 +28,8 @@ class AddPersonController extends AbstractPersonCrudController
         $person->user_id = Auth::id();
         $person->save();
 
+        $person->assignTeam($request->post('person-team'));
+
         return \Redirect::route('home');
     }
 }

@@ -14,19 +14,14 @@ class PersonSeeder extends Seeder
             ->truncate();
         Schema::enableForeignKeyConstraints();
 
-        factory(Person::class, 50)
-            ->create()
-            ->each(function(Person $person) {
-                $team = \App\Team::inRandomOrder()->first();
-                $person->teams()->attach($team->id);
-            });
+        Person::create('Zaphod Beeblebrox', 'Europe/Dublin', 1, ['Other']);
 
-        $person = new Person();
-        $person->name = 'Zaphod Beeblebrox';
-        $person->user_id = 1;
-        $person->timezone = 'Europe/Dublin';
-        $person->uuid = Uuid::uuid4();
-        $person->save();
-        $person->teams()->attach(1);
+        Person::create('Valeriane Venance', 'Europe/Paris', 1, ['Work']);
+        Person::create('Devin Rader', 'America/New_York', 1, ['Work']);
+        Person::create('Alina Rakhmatoullina', 'America/Chicago', 1, ['Work']);
+        Person::create('Troy Blanchard', 'America/Los_Angeles', 1, ['Work']);
+        Person::create('Phil Nash', 'Australia/Melbourne', 1, ['Work']);
+
+        Person::create('Matthew Weier O\'Phinney', 'America/Mexico_City', 1, ['Community']);
     }
 }
