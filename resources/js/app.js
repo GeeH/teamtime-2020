@@ -1,11 +1,11 @@
 import { createApp } from 'vue'
-import message from './components/message'
+import App from './components/App';
 
 console.log("Creating app...");
-const AppComponent = {} ;
-const app = createApp(AppComponent);
+
+const app = createApp(App)
+app.config.devtools = true;
+
 const vm = app.mount('#app');
-app.component('message');
 
 require('moment');
-

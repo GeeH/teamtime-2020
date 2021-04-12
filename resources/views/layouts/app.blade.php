@@ -57,29 +57,12 @@
     </div>
 </nav>
 
-<div id="app">
-    <message message="Hi World"></message>
-</div>
+
 
 <div class="mx-auto px-6 md:px-0">
-    @yield('content')
+    <div id="app"></div>
+    @yield('login')
 </div>
-
-<script>
-    const renderClock = () => {
-        document.getElementById('local-clock').innerHTML = '<h5>' + moment()
-            .format('MMMM Do YYYY kk:mm') + '</h5>';
-
-        var timezoneElements = document.querySelectorAll('.person-time');
-        timezoneElements.forEach(timezoneElement => {
-            timezoneElement.innerHTML =
-                '<span class="text-4xl font-bold">'
-                + moment().tz(timezoneElement.getAttribute('data-timezone')).format('HH:mm');
-        });
-    };
-    renderClock();
-    setInterval(renderClock, 10000);
-</script>
 
 @livewireScripts
 <script src="{{ mix('js/app.js') }}"></script>

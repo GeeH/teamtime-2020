@@ -24,6 +24,7 @@ Auth::routes();
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/home', 'HomeController')->name('home');
+    Route::get('/home/json', 'HomeController@json')->name('home-json');
     Route::get('/edit/{person}', 'EditPersonController@index')->name('edit-person');
     Route::post('/edit/{person}', 'EditPersonController@handle')->name('edit-person-handler');
     Route::get('/add', 'AddPersonController@index')->name('add-person');

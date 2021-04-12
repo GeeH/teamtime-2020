@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('content')
+@section('login')
     <div class="container mx-auto absolute my-20">
         <div class="flex flex-wrap justify-center">
             <div class="w-full max-w-sm">

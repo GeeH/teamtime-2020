@@ -5,7 +5,10 @@
 </template>
 
 <script>
+
+
 export default {
+    name: 'message',
     props: {
         message: {
             required: true,
@@ -14,5 +17,3 @@ export default {
     }
 }
 </script>
-<style lang="stylus" scoped>
-</style>
