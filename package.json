@@ -28,7 +28,7 @@
     },
     "dependencies": {
         "moment": "^2.29.1",
-        "moment-timezone": "^0.5.33",
+        "moment-timezone": "^0.5.35",
         "serverless": "^2.23.0",
         "vue": "^3.0.7"
     }
